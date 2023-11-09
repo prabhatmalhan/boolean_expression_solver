@@ -9,6 +9,7 @@ def is_bit_diff1(x,y):
             c+=1
             ind=i
         if c>1:return (False,)
+    if c!=1:return (False,)
     return (True,ind)
 
 def count1(x):
@@ -47,7 +48,6 @@ def QMccluskey(equation:str):
     rem_implicants = []
 
     while True:
-        print("min_groups :",min_groups)
         k = sorted(min_groups.keys())
         temp=dict()
         change=False
@@ -68,25 +68,31 @@ def QMccluskey(equation:str):
                         visited.extend([i,j])
         if not change:break
         rem_implicants.extend(get_list_diffrence(get_flat_list(min_groups),visited))
-        print('rem_implicants :',rem_implicants)
         min_groups = temp.copy()
     
-    print('-'*50)
-    print(min_groups)
-    print(rem_implicants)
     prime_implicants_table = dict()
     for i in minterms:
         prime_implicants_table[int(i)]=set()
 
-    for i in min_groups.keys():
+    for i in min_groups:
         for j in min_groups[i]:
             for k in j[1]:
                 prime_implicants_table[k].add(create_term_from_binary(j[0],variables))
 
+    for i in rem_implicants:
+            for j in i[1]:
+                prime_implicants_table[j].add(create_term_from_binary(i[0],variables))
+
+    solution = set()
     for i in prime_implicants_table:
-        print(i)
+        if len(prime_implicants_table[i])==1:
+            for j in prime_implicants_table[i]:
+                solution.add(j)
+    return '+'.join(solution)
 
-def solve(equation="ab+c"):
-    QMccluskey(to_sop(equation=equation))   
 
-solve()
+def solve(equation=None):
+    if equation == None:return ""
+    x = to_sop(equation=equation)
+    if x=='1' or x=='0':return x
+    return QMccluskey(x)   
