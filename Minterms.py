@@ -37,4 +37,15 @@ def create_term_from_binary(bin:str,order:list):
     return term
 
 def equation_to_minterms(equation:str):
-    return [Minterms(rep=i) for i in equation.split('+')]
+    res = []
+    minterms = equation.split('+')
+    for i in minterms:
+        to_add=True
+        temp=i
+        for j in re.findall("[A-Z]'",temp):temp =temp.replace(j,j[0].lower())
+        for j in temp:
+            if j>='A' and j<='Z':
+                if j.lower() in temp:to_add=False
+                break
+        if to_add:res.append(i)
+    return [Minterms(rep=i) for i in res]
