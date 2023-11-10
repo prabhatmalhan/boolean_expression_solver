@@ -1,1 +1,1 @@
-web: gunicorn main:app
+web: unicorn app:app host 0.0.0.0
