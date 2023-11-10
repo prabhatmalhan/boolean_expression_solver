@@ -1,5 +1,5 @@
-from Expression import to_sop
-from Minterms import equation_to_minterms,create_term_from_binary
+from utils.Expression import to_sop
+from utils.Minterms import equation_to_minterms,create_term_from_binary
 import re
 
 def is_bit_diff1(x,y):

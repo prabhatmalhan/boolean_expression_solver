@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template,request
-from Solve import solve
+from utils.Solve import solve
 
 app = Flask(__name__)
 
