@@ -13,9 +13,9 @@ def home():
 def solve_eq():
     try:
         equation = request.get_json()['equation']
+        return solve(equation=equation)
     except:
         return "error"
-    return solve(equation=equation)
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
