@@ -69,6 +69,7 @@ class Expression:
                 equation = equation.replace(i,i[0]+p)
 
         equation = equation.replace(')(',')*(')
+        equation = equation.replace('.','*')
         equation = equation.replace("'(","'*(")
         equation = re.sub(r"\)([a-zA-z0-9])",r')*\1',equation)
         equation = re.sub(r"([a-zA-z0-9])\(",r'\1*(',equation)
