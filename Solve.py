@@ -36,6 +36,7 @@ def get_list_diffrence(x:list,y:list):
 
 def QMccluskey(equation:str):
     minterms = equation_to_minterms(equation)
+    if(len(minterms)==0):return '0'
     variables = list(re.findall('[A-Z]',minterms[0].get_representation()))
     variables.sort(key=str.lower)
     min_groups = dict()
