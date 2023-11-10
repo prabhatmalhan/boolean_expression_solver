@@ -45,7 +45,8 @@ def equation_to_minterms(equation:str):
         for j in re.findall("[A-Z]'",temp):temp =temp.replace(j,j[0].lower())
         for j in temp:
             if j>='A' and j<='Z':
-                if j.lower() in temp:to_add=False
-                break
+                if j.lower() in temp:
+                    to_add=False
+                    break
         if to_add:res.append(i)
     return [Minterms(rep=i) for i in res]
