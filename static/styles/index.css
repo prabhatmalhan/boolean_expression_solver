@@ -1,0 +1,52 @@
+body {
+  background-color: rgb(165, 178, 178);
+}
+
+div#form_container {
+  display: flex;
+  justify-content: center;
+}
+
+#output_div {
+  margin-top: 7vh;
+}
+
+form {
+  width: 93%;
+  border-radius: 10px;
+  margin-top: 15vh;
+}
+
+#floatingInput {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.3em;
+  width: 100%;
+  height: max(50px, 6.9vh);
+  border-radius: max(20px, 2.76vh);
+  margin-top: 1vh;
+  margin-bottom: 8vh;
+}
+
+#Output {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  font-size: 1.3em;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 93%;
+  height: max(50px, 6.9vh);
+  border-radius: max(20px, 2.76vh);
+  margin: 0 auto;
+  margin-top: 1vh;
+  margin-bottom: 8vh;
+}
+
+#submit {
+  margin: 0 auto;
+  display: block;
+  height: max(40px, 5.5vh);
+  width: min(30%, 200px);
+}
