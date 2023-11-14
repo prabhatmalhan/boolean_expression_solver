@@ -89,7 +89,9 @@ def QMccluskey(equation:str):
         if len(prime_implicants_table[i])==1:
             for j in prime_implicants_table[i]:
                 solution.add(j)
-    return '+'.join(solution)
+    res = '+'.join(solution)
+    if res=='':return '1'
+    return res
 
 
 def solve(equation=None):
